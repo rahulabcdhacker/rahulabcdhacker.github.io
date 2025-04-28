@@ -1,54 +1,347 @@
-<!-- 1. HEAD SECTION: Remove EmailJS script -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Remove this line entirely -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Grocery Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom Animations */
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .slide-in { animation: slideIn 0.3s ease-out; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: all 0.3s ease; }
+        .cart-item:hover { background-color: #f1f5f9; transition: background-color 0.2s; }
+        .sidebar { transition: transform 0.3s ease-in-out; }
+        .sidebar-hidden { transform: translateX(-100%); }
+        .spinner { animation: spin 1s linear infinite; }
+        .bg-gradient { background: linear-gradient(135deg, #16a34a, #22c55e); }
+        .category-item:hover { background-color: #15803d; transition: background-color 0.3s; }
+    </style>
 </head>
+<body class="bg-gray-50 font-sans">
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 hidden">
+        <div class="border-4 border-t-transparent border-green-500 rounded-full w-12 h-12 spinner"></div>
+    </div>
 
-<!-- 2. MAIN SCRIPT: Replace EmailJS init and send blocks -->
-<script>
-  // --- REMOVE THESE LINES START ---
-  // Initialize EmailJS
-  emailjs.init("YOUR_EMAILJS_USER_ID");
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-gradient text-white p-6 sidebar sidebar-hidden z-20 lg:translate-x-0 lg:static lg:min-h-screen">
+        <div class="flex items-center mb-8">
+            <img src="https://via.placeholder.com/40" alt="Manoj Grocery Logo" class="h-10">
+            <h2 class="text-xl font-bold ml-2">Manoj Grocery</h2>
+        </div>
+        <nav>
+            <ul id="categoryList">
+                <li><a href="#" data-category="all" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">All Categories</a></li>
+                <li><a href="#" data-category="cold-drink" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Cold Drink</a></li>
+                <li><a href="#" data-category="candy" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Candy</a></li>
+                <li><a href="#" data-category="shop-shampoo" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Shop & Shampoo</a></li>
+                <li><a href="#" data-category="namkeen" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Namkeen</a></li>
+                <li><a href="#" data-category="pooja-items" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Pooja Items</a></li>
+                <li><a href="#" data-category="electronic-items" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Electronic Items</a></li>
+                <li><a href="#" data-category="stationery-item" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Stationery Item</a></li>
+                <li><a href="#" data-category="pan-masala" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Pan Masala</a></li>
+                <li><a href="#" data-category="daal" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Daal</a></li>
+                <li><a href="#" data-category="disposal-item" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Disposal Item</a></li>
+                <li><a href="#" data-category="masale" class="category-item block py-3 px-4 rounded-lg hover:bg-green-700">Masale</a></li>
+            </ul>
+        </nav>
+    </div>
 
-  // Submit Order with EmailJS
-  document.getElementById('submitOrder').addEventListener('click', async () => {
-      const name    = document.getElementById('customerName').value.trim();
-      const email   = document.getElementById('customerEmail').value.trim();
-      const phone   = document.getElementById('customerPhone').value.trim();
-      const address = document.getElementById('customerAddress').value.trim();
+    <!-- Main Content -->
+    <div class="lg:ml-72">
+        <!-- Header -->
+        <header class="bg-gradient text-white p-4 flex justify-between items-center sticky top-0 z-10 shadow-md">
+            <div class="flex items-center">
+                <button id="menuToggle" class="lg:hidden text-2xl mr-4">☰</button>
+                <h1 class="text-xl font-bold hidden sm:block">Manoj Grocery Store</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input id="searchBar" type="text" placeholder="Search products..." class="p-2 pl-10 rounded-full text-black w-48 sm:w-64 focus:outline-none focus:ring-2 focus:ring-green-300">
+                    <span class="absolute left-3 top-2.5 text-gray-500">🔍</span>
+                </div>
+                <button id="cartToggle" class="flex items-center bg-green-700 px-4 py-2 rounded-full hover:bg-green-800">
+                    <span class="text-xl">🛒</span>
+                    <span id="cartCount" class="ml-2 bg-white text-green-700 rounded-full px-2 text-sm">0</span>
+                </button>
+            </div>
+        </header>
 
-      if (!name || !email || !phone || !address || cart.length === 0) {
-          alert('Please fill all fields and add items to cart.');
-          return;
-      }
+        <!-- Product Showcase -->
+        <main class="container mx-auto p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Our Products</h2>
+            </div>
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </main>
 
-      loadingSpinner.classList.remove('hidden');
+        <!-- Cart Modal -->
+        <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-30">
+            <div class="bg-white p-6 rounded-xl w-full max-w-lg max-h-[80vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">Your Cart</h2>
+                    <button id="closeCart" class="text-gray-500 hover:text-gray-700">✖</button>
+                </div>
+                <div id="cartItems" class="space-y-4"></div>
+                <p class="text-lg font-semibold mt-6 text-gray-800">Total: ₹<span id="cartTotal">0</span></p>
+                <button id="proceedToCheckout" class="w-full bg-green-600 text-white px-4 py-3 mt-4 rounded-lg hover:bg-green-700">Proceed to Checkout</button>
+            </div>
+        </div>
 
-      try {
-          await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-              customer_name: name,
-              customer_email: email,
-              customer_phone: phone,
-              customer_address: address,
-              order_items: cart.map(item => `${item.name} x${item.quantity} (₹${item.price * item.quantity})`).join(', '),
-              order_total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2),
-              order_date: new Date().toLocaleString()
-          });
+        <!-- Checkout Modal -->
+        <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-30">
+            <div class="bg-white p-6 rounded-xl w-full max-w-lg">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">Checkout</h2>
+                    <button id="closeCheckout" class="text-gray-500 hover:text-gray-700">✖</button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Name</label>
+                        <input id="customerName" type="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-300" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input id="customerEmail" type="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-300" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input id="customerPhone" type="tel" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-300" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Address</label>
+                        <textarea id="customerAddress" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-300" rows="4" required></textarea>
+                    </div>
+                </div>
+                <button id="submitOrder" class="w-full bg-green-600 text-white px-4 py-3 mt-6 rounded-lg hover:bg-green-700">Place Order</button>
+            </div>
+        </div>
 
-          toggleModal(checkoutModal, false);
-          toggleModal(confirmationModal, true);
-          cart = [];
-          saveCart(); updateCart();
-          ['customerName','customerEmail','customerPhone','customerAddress'].forEach(id => document.getElementById(id).value = '');
-      } catch (error) {
-          alert('Failed to send order. Please try again.'); console.error(error);
-      } finally {
-          loadingSpinner.classList.add('hidden');
-      }
-  });
-  // --- REMOVE THESE LINES END ---
+        <!-- Order Confirmation Modal -->
+        <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-30">
+            <div class="bg-white p-6 rounded-xl w-full max-w-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Order Confirmed!</h2>
+                <p class="text-gray-600">Thank you for your order. You'll receive a confirmation email soon.</p>
+                <button id="closeConfirmation" class="w-full bg-green-600 text-white px-4 py-3 mt-6 rounded-lg hover:bg-green-700">Continue Shopping</button>
+            </div>
+        </div>
 
-  // --- ADD FORMPSPREE HANDLER BELOW THIS LINE ---
+        <!-- Footer -->
+        <footer class="bg-gradient text-white p-6">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Manoj Grocery Store</h3>
+                    <p class="text-sm">Your one-stop shop for all grocery needs. Quality products at the best prices!</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="hover:underline">Home</a></li>
+                        <li><a href="#" class="hover:underline">Categories</a></li>
+                        <li><a href="#" class="hover:underline">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <p class="text-sm">Phone: 8923916987</p>
+                    <p class="text-sm">Email: kumarrahul17924@gmail.com</p>
+                    <p class="text-sm">Address: Taiyyatput Bisalpur Road Bareilly</p>
+                </div>
+            </div>
+            <div class="mt-6 text-center text-sm">
+                &copy; 2025 Manoj Grocery Store. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+      
+
+        // Product data with categories
+        const products = [
+            // Cold Drink
+            { id: 1, name: "Coca Cola", price: 40, category: "cold-drink", image: "coca .jpg" },
+            { id: 2, name: "Pepsi", price: 40, category: "cold-drink", image: "https://via.placeholder.com/200?text=Pepsi" },
+            { id: 3, name: "Sprite", price: 40, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
+            // Candy
+            { id: 4, name: "Dairy Milk", price: 20, category: "candy", image: "https://via.placeholder.com/200?text=Dairy+Milk" },
+            { id: 5, name: "KitKat", price: 15, category: "candy", image: "https://via.placeholder.com/200?text=KitKat" },
+            { id: 6, name: "Gems", price: 10, category: "candy", image: "https://via.placeholder.com/200?text=Gems" },
+            // Shop & Shampoo
+            { id: 7, name: "Dove Shampoo", price: 150, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Dove+Shampoo" },
+            { id: 8, name: "Clinic Plus", price: 120, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Clinic+Plus" },
+            { id: 9, name: "Lifebuoy Soap", price: 30, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Lifebuoy+Soap" },
+            // Namkeen
+            { id: 10, name: "Haldiram Bhujia", price: 50, category: "namkeen", image: "https://via.placeholder.com/200?text=Haldiram+Bhujia" },
+            { id: 11, name: "Bikano Mixture", price: 60, category: "namkeen", image: "https://via.placeholder.com/200?text=Bikano+Mixture" },
+            { id: 12, name: "Chips", price: 20, category: "namkeen", image: "https://via.placeholder.com/200?text=Chips" },
+            // Pooja Items
+            { id: 13, name: "Agarbatti", price: 30, category: "pooja-items", image: "https://via.placeholder.com/200?text=Agarbatti" },
+            { id: 14, name: "Diya", price: 10, category: "pooja-items", image: "https://via.placeholder.com/200?text=Diya" },
+            { id: 15, name: "Camphor", price: 20, category: "pooja-items", image: "https://via.placeholder.com/200?text=Camphor" },
+            // Electronic Items
+            { id: 16, name: "Battery AA", price: 15, category: "electronic-items", image: "https://via.placeholder.com/200?text=Battery+AA" },
+            { id: 17, name: "Bulb", price: 50, category: "electronic-items", image: "https://via.placeholder.com/200?text=Bulb" },
+            { id: 18, name: "Extension Cord", price: 150, category: "electronic-items", image: "https://via.placeholder.com/200?text=Extension+Cord" },
+            // Stationery Item
+            { id: 19, name: "Pen", price: 10, category: "stationery-item", image: "https://via.placeholder.com/200?text=Pen" },
+            { id: 20, name: "Notebook", price: 40, category: "stationery-item", image: "https://via.placeholder.com/200?text=Notebook" },
+            { id: 21, name: "Pencil", price: 5, category: "stationery-item", image: "https://via.placeholder.com/200?text=Pencil" },
+            // Pan Masala
+            { id: 22, name: "Rajni Gandha", price: 10, category: "pan-masala", image: "https://via.placeholder.com/200?text=Rajni+Gandha" },
+            { id: 23, name: "Vimal", price: 10, category: "pan-masala", image: "https://via.placeholder.com/200?text=Vimal" },
+            { id: 24, name: "Paan Parag", price: 10, category: "pan-masala", image: "https://via.placeholder.com/200?text=Paan+Parag" },
+            // Daal
+            { id: 25, name: "Toor Daal", price: 80, category: "daal", image: "https://via.placeholder.com/200?text=Toor+Daal" },
+            { id: 26, name: "Moong Daal", price: 90, category: "daal", image: "https://via.placeholder.com/200?text=Moong+Daal" },
+            { id: 27, name: "Chana Daal", price: 70, category: "daal", image: "https://via.placeholder.com/200?text=Chana+Daal" },
+            // Disposal Item
+            { id: 28, name: "Paper Plates", price: 50, category: "disposal-item", image: "https://via.placeholder.com/200?text=Paper+Plates" },
+            { id: 29, name: "Plastic Cups", price: 30, category: "disposal-item", image: "https://via.placeholder.com/200?text=Plastic+Cups" },
+            { id: 30, name: "Spoons", price: 20, category: "disposal-item", image: "https://via.placeholder.com/200?text=Spoons" },
+            // Masale
+            { id: 31, name: "Turmeric Powder", price: 30, category: "masale", image: "https://via.placeholder.com/200?text=Turmeric+Powder" },
+            { id: 32, name: "Chili Powder", price: 25, category: "masale", image: "https://via.placeholder.com/200?text=Chili+Powder" },
+            { id: 33, name: "Garam Masala", price: 40, category: "masale", image: "https://via.placeholder.com/200?text=Garam+Masala" },
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // DOM Elements
+        const productGrid = document.getElementById('productGrid');
+        const cartModal = document.getElementById('cartModal');
+        const checkoutModal = document.getElementById('checkoutModal');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartCount = document.getElementById('cartCount');
+        const searchBar = document.getElementById('searchBar');
+        const sidebar = document.getElementById('sidebar');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const categoryList = document.getElementById('categoryList');
+
+        // Save cart to local storage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Render Products
+        function renderProducts(productList) {
+            productGrid.innerHTML = '';
+            productList.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'bg-white p-4 rounded-xl shadow-lg product-card fade-in';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
+                    <p class="text-gray-600 capitalize">Category: ${product.category.replace(/-/g, ' ')}</p>
+                    <p class="text-xl font-bold text-green-600 mt-2">₹${product.price}</p>
+                    <div class="flex items-center mt-4 space-x-2">
+                        <button onclick="updateQuantity(${product.id}, -1)" class="bg-gray-300 text-gray-800 px-3 py-1 rounded">-</button>
+                        <input id="quantity-${product.id}" type="number" value="1" min="1" class="w-16 p-1 border rounded text-center" onchange="setQuantity(${product.id}, this.value)">
+                        <button onclick="updateQuantity(${product.id}, 1)" class="bg-gray-300 text-gray-800 px-3 py-1 rounded">+</button>
+                    </div>
+                    <button onclick="addToCart(${product.id})" class="w-full bg-green-600 text-white px-4 py-2 mt-4 rounded-lg hover:bg-green-700">Add to Cart</button>
+                `;
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // Update Quantity
+        function updateQuantity(productId, change) {
+            const input = document.getElementById(`quantity-${productId}`);
+            let value = parseInt(input.value) + change;
+            if (value < 1) value = 1;
+            input.value = value;
+        }
+
+        function setQuantity(productId, value) {
+            const input = document.getElementById(`quantity-${productId}`);
+            let qty = parseInt(value);
+            if (qty < 1 || isNaN(qty)) qty = 1;
+            input.value = qty;
+        }
+
+        // Add to Cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const quantity = parseInt(document.getElementById(`quantity-${productId}`).value);
+            const cartItem = cart.find(item => item.id === productId);
+
+            if (cartItem) {
+                cartItem.quantity += quantity;
+            } else {
+                cart.push({ ...product, quantity });
+            }
+            saveCart();
+            updateCart();
+        }
+
+        // Remove from Cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCart();
+        }
+
+        // Update Cart UI
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex justify-between items-center p-3 bg-gray-50 rounded-lg cart-item';
+                cartItem.innerHTML = `
+                    <div>
+                        <span class="font-medium">${item.name}</span>
+                        <span class="text-gray-600"> (x${item.quantity})</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span>₹${item.price * item.quantity}</span>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">🗑</button>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            cartTotal.textContent = total.toFixed(2);
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        // Toggle Modals
+        function toggleModal(modal, show) {
+            modal.classList.toggle('hidden', !show);
+            if (show) modal.classList.add('fade-in');
+        }
+
+        document.getElementById('cartToggle').addEventListener('click', () => toggleModal(cartModal, true));
+        document.getElementById('closeCart').addEventListener('click', () => toggleModal(cartModal, false));
+        document.getElementById('proceedToCheckout').addEventListener('click', () => {
+            toggleModal(cartModal, false);
+            toggleModal(checkoutModal, true);
+        });
+        document.getElementById('closeCheckout').addEventListener('click', () => toggleModal(checkoutModal, false));
+        document.getElementById('closeConfirmation').addEventListener('click', () => {
+            toggleModal(confirmationModal, false);
+            window.location.reload();
+        });
+
+      // --- ADD FORMPSPREE HANDLER BELOW THIS LINE ---
   document.getElementById('submitOrder').addEventListener('click', async () => {
       const name    = document.getElementById('customerName').value.trim();
       const email   = document.getElementById('customerEmail').value.trim();
@@ -73,7 +366,7 @@
       };
 
       try {
-          const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          const response = await fetch('https://formspree.io/f/xyzwzqyv', {
               method: 'POST', headers: {
                   'Content-Type': 'application/json', 'Accept': 'application/json'
               }, body: JSON.stringify(payload)
@@ -93,4 +386,53 @@
           alert('Network error. Please try again later.');
       } finally { loadingSpinner.classList.add('hidden'); }
   });
-</script>
+
+        // Search and Filter
+        function filterProducts(category = 'all', query = '') {
+            const filteredProducts = products.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(query.toLowerCase());
+                const matchesCategory = category === 'all' || product.category === category;
+                return matchesSearch && matchesCategory;
+            });
+            renderProducts(filteredProducts);
+        }
+
+        searchBar.addEventListener('input', (e) => {
+            const activeCategory = document.querySelector('.category-item.active')?.dataset.category || 'all';
+            filterProducts(activeCategory, e.target.value);
+        });
+
+        // Category Filter
+        categoryList.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.target.closest('.category-item');
+            if (target) {
+                document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
+                target.classList.add('active');
+                const category = target.dataset.category;
+                filterProducts(category, searchBar.value);
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('sidebar-hidden');
+                }
+            }
+        });
+
+        // Toggle Sidebar
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-hidden');
+        });
+
+        // Close Sidebar on Outside Click (Mobile)
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024 && !sidebar.contains(e.target) && !document.getElementById('menuToggle').contains(e.target)) {
+                sidebar.classList.add('sidebar-hidden');
+            }
+        });
+
+        // Initialize
+        renderProducts(products);
+        updateCart();
+        document.querySelector('.category-item[data-category="all"]').classList.add('active');
+    </script>
+</body>
+</html>
