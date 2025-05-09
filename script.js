@@ -299,7 +299,7 @@
                 const productCard = document.createElement('div');
                 productCard.className = 'bg-white p-4 rounded-xl shadow-lg product-card fade-in';
                 productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-contain rounded-lg mb-4">
                     <h3 class="text-lg font-semibold text-gray-800">${product.name}</h3>
                     <p class="text-gray-600 capitalize">Category: ${product.category.replace(/-/g, ' ')}</p>
                     <p class="text-xl font-bold text-green-600 mt-2">₹${product.price}</p>
