@@ -20,7 +20,7 @@
             { id: 17, name: "Sprite Can (180ml)", price: 25, category: "cold-drink", image: "scan.jpg" },
             { id: 18, name: "Thums up Can (180ml)", price: 25, category: "cold-drink", image: "tcan.jpg" },
             { id: 19, name: "Limca Can (180ml)", price: 25, category: "cold-drink", image: "coca .jpg" },
-            { id: 20, name: "Fanta Can (180ml)", price: 25, category: "cold-drink", image: "coca .jpg" },
+            { id: 20, name: "Fanta Can (180ml)", price: 25, category: "cold-drink", image: "https://bazaar5.com/image/cache/catalog/pro/product/apiData/b084p31nvl-fanta-soft-drink-orange-180ml-0-2500x2500.jpg" },
             { id: 21, name: "Hell Can (250ml)", price: 60, category: "cold-drink", image: "https://via.placeholder.com/200?text=Pepsi" },
             { id: 22, name: "Red Bull (350ml)", price: 125, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
             { id: 23, name: "Mazaa (600ml)", price: 60, category: "cold-drink", image: "coca .jpg" },
