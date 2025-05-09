@@ -2,7 +2,7 @@
         const products = [
             // Cold Drink
             { id: 1, name: "Coca Cola (250ml)", price: 20, category: "cold-drink", image: "coca .jpg" },
-            { id: 2, name: "Maaza (125ml)", price: 10, category: "cold-drink", image: "https://via.placeholder.com/200?text=Pepsi" },
+            { id: 2, name: "Maaza (125ml)", price: 10, category: "cold-drink", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
             { id: 3, name: "Litchi Drink (250ml)", price: 10, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
             { id: 4, name: "Campa Orange (250ml)", price: 10, category: "cold-drink", image: "coca .jpg" },
             { id: 5, name: "Campa Green (250ml)", price: 10, category: "cold-drink", image: "coca .jpg" },
