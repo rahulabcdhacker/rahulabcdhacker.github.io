@@ -356,7 +356,7 @@
             cartItems.innerHTML = '';
             let total = 0;
             cart.forEach(item => {
-                total += item.price * item.quantity+10;
+                total += item.price * item.quantity;
                 const cartItem = document.createElement('div');
                 cartItem.className = 'flex justify-between items-center p-3 bg-gray-50 rounded-lg cart-item';
                 cartItem.innerHTML = `
@@ -372,7 +372,7 @@
                 cartItems.appendChild(cartItem);
             });
             cartTotal.textContent = total.toFixed(2);
-            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity+10, 0);
         }
 
         // Toggle Modals
@@ -413,7 +413,7 @@
           phone,
           address,
           items: cart.map(item => `${item.name} x${item.quantity} (₹${item.price * item.quantity})`).join(", "),
-          total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2),
+          total: cart.reduce((sum, item) => sum + item.price * item.quantity+10, 0).toFixed(2),
           date: new Date().toLocaleString()
       };
 
