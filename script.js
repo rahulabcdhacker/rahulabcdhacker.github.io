@@ -413,7 +413,7 @@
           phone,
           address,
           items: cart.map(item => `${item.name} x${item.quantity} (₹${item.price * item.quantity})`).join(", "),
-          total: cart.reduce((sum, item) => sum + item.price * item.quantity+10, 0).toFixed(2),
+          total: (cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + 10).toFixed(2),
           date: new Date().toLocaleString()
       };
 
