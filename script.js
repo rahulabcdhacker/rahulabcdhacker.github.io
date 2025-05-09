@@ -31,14 +31,14 @@
             { id: 31, name: "Sprite (2L)", price: 100, category: "cold-drink", image: "s2l.jpg" },
             { id: 32, name: "Fanta (2L)", price: 100, category: "cold-drink", image: "https://www.bigbasket.com/media/uploads/p/l/251041_9-fanta-soft-drink-orange-flavoured.jpg" },
             { id: 33, name: "Thums up (2L) ", price: 100, category: "cold-drink", image: "t2l" },
-            { id: 34, name: "Mazaa (2L)", price: 100, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
-            { id: 35, name: "Frooti (2L)", price: 100, category: "cold-drink", image: "coca .jpg" },
+            { id: 34, name: "Mazaa (2L)", price: 100, category: "cold-drink", image: "https://www.bbassets.com/media/uploads/p/l/1203603-2_5-maaza-fruit-juice-mango.jpg" },
+            { id: 35, name: "Frooti (2L)", price: 100, category: "cold-drink", image: "https://my-market.in/wp-content/uploads/2021/04/Frooti-Mango-Drink-2-Litres.jpg" },
             { id: 36, name: "Amul Lassi (200ml)", price: 20, category: "cold-drink", image: "lassi.jpg" },
-            { id: 37, name: "Tropicana (180ml)", price: 20, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
+            { id: 37, name: "Tropicana (180ml)", price: 20, category: "cold-drink", image: "https://www.mymakbuddy.in/wp-content/uploads/2023/03/Tropicana-pomegranate-Delight-180ml.jpg" },
             { id: 38, name: "Groovy (125ml)", price: 100, category: "cold-drink", image: "paper.jpg" },
             { id: 39, name: "Bisleri (1L)", price: 20, category: "cold-drink", image: "bisleri20.jpg" },
             { id: 40, name: "Bisleri (500ml)", price: 10, category: "cold-drink", image: "bisleri10.jpg" },
-            { id: 41, name: "Kinley (1L)", price: 20, category: "cold-drink", image: "coca .jpg" },
+            { id: 41, name: "Kinley (1L)", price: 20, category: "cold-drink", image: "https://m.media-amazon.com/images/I/419iH19Kg4L.jpg" },
             { id: 41, name: "Amul Butter milk (200ml)", price: 20, category: "cold-drink", image: "amul.jpg" },
             // Candy
             // Candy
