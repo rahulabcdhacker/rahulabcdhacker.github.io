@@ -30,7 +30,7 @@
             { id: 30, name: "Mazaa (1L)", price: 60, category: "cold-drink", image: "https://m.media-amazon.com/images/I/61+jGc7vLIL.jpg" },
             { id: 31, name: "Sprite (2L)", price: 100, category: "cold-drink", image: "s2l.jpg" },
             { id: 32, name: "Fanta (2L)", price: 100, category: "cold-drink", image: "https://www.bigbasket.com/media/uploads/p/l/251041_9-fanta-soft-drink-orange-flavoured.jpg" },
-            { id: 33, name: "Thums up (2L) ", price: 100, category: "cold-drink", image: "t2l" },
+            { id: 33, name: "Thums up (2L) ", price: 100, category: "cold-drink", image: "https://m.media-amazon.com/images/I/619lX5zikVL._AC_UF1000,1000_QL80_.jpg" },
             { id: 34, name: "Mazaa (2L)", price: 100, category: "cold-drink", image: "https://www.bbassets.com/media/uploads/p/l/1203603-2_5-maaza-fruit-juice-mango.jpg" },
             { id: 35, name: "Frooti (2L)", price: 100, category: "cold-drink", image: "https://my-market.in/wp-content/uploads/2021/04/Frooti-Mango-Drink-2-Litres.jpg" },
             { id: 36, name: "Amul Lassi (200ml)", price: 20, category: "cold-drink", image: "lassi.jpg" },
