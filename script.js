@@ -1,6 +1,6 @@
    // Product data with categories
         const products = [
-            // Cold Drink
+            // All category
             { id: 1, name: "Coca Cola (250ml)", price: 20, category: "cold-drink", image: "coca .jpg" },
             { id: 2, name: "Maaza (125ml)", price: 10, category: "cold-drink", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
             { id: 3, name: "Litchi Drink (250ml)", price: 10, category: "cold-drink", image: "https://dyyv8eonpc8dv.cloudfront.net/media/cache/f8/bc/f8bc9218424bfcd9c7e489e95172e820.jpg" },
@@ -41,7 +41,7 @@
             { id: 41, name: "Kinley (1L)", price: 20, category: "cold-drink", image: "https://m.media-amazon.com/images/I/419iH19Kg4L.jpg" },
             { id: 41, name: "Amul Butter milk (200ml)", price: 20, category: "cold-drink", image: "amul.jpg" },
             // Candy
-            // Candy
+            // C
             { id: 4, name: "Dairy Milk", price: 20, category: "candy", image: "https://via.placeholder.com/200?text=Dairy+Milk" },
             { id: 5, name: "KitKat", price: 15, category: "candy", image: "https://via.placeholder.com/200?text=KitKat" },
             { id: 6, name: "Gems", price: 10, category: "candy", image: "https://via.placeholder.com/200?text=Gems" },
