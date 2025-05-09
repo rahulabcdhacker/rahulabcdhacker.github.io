@@ -5,7 +5,7 @@
             { id: 2, name: "Maaza (125ml)", price: 10, category: "cold-drink", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
             { id: 3, name: "Litchi Drink (250ml)", price: 10, category: "cold-drink", image: "https://dyyv8eonpc8dv.cloudfront.net/media/cache/f8/bc/f8bc9218424bfcd9c7e489e95172e820.jpg" },
             { id: 4, name: "Campa Orange (250ml)", price: 10, category: "cold-drink", image: "https://5.imimg.com/data5/ANDROID/Default/2024/7/433881561/DX/CA/LL/156958934/product-jpeg.jpeg" },
-            { id: 8, name: "Feez (125ml) ", price: 10, category: "cold-drink", image: "coca .jpg" },
+            { id: 8, name: "Feez (125ml) ", price: 10, category: "cold-drink", image: "https://m.media-amazon.com/images/I/511i0X9QKYL.jpg" },
             { id: 9, name: "Feez (250ml)", price: 20, category: "cold-drink", image: "fizz20.jpg" },
             { id: 10, name: "Sprite (250ml)", price: 20, category: "cold-drink", image: "https://via.placeholder.com/200?text=Pepsi" },
             { id: 11, name: "ThumsUp(250ml)", price: 20, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
