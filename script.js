@@ -157,9 +157,11 @@
             { id: 15, name: "Rooee Batti", price: 5, category: "pooja-items", image: "https://via.placeholder.com/200?text=Camphor" },
             { id: 13, name: "Jayfal", price: 3, category: "pooja-items", image: "https://via.placeholder.com/200?text=Agarbatti" },
             { id: 14, name: "Roli", price: 5, category: "pooja-items", image: "https://via.placeholder.com/200?text=Diya" },
-            { id: 15, name: "Kapoor", price: 20, category: "pooja-items", image: "https://via.placeholder.com/200?text=Camphor" },
+            { id: 15, name: "Kapoor", price: 7, category: "pooja-items", image: "https://via.placeholder.com/200?text=Camphor" },
             { id: 13, name: "Kalawa", price: 5, category: "pooja-items", image: "https://via.placeholder.com/200?text=Agarbatti" },
             { id: 14, name: "Pooja Ghi", price: 25, category: "pooja-items", image: "https://via.placeholder.com/200?text=Diya" },
+            { id: 15, name: "Long", price: 5, category: "pooja-items", image: "https://via.placeholder.com/200?text=Camphor" },
+            { id: 14, name: "Kapoor", price: 3, category: "pooja-items", image: "https://via.placeholder.com/200?text=Diya" },
             { id: 15, name: "Long", price: 5, category: "pooja-items", image: "https://via.placeholder.com/200?text=Camphor" },
             // Electronic Items
             { id: 16, name: "Battery AA", price: 15, category: "electronic-items", image: "https://via.placeholder.com/200?text=Battery+AA" },
