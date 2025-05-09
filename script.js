@@ -63,7 +63,7 @@
             { id: 6, name: "Sunsilk", price: 1, category: "shop-shampoo", image: "https://daily.myindianbrand.com/wp-content/uploads/2022/12/Sunsilk-Thick-and-Long-Shampoo-1rs-sachet.jpg" },
             { id: 7, name: "Kesh Kanti ", price: 1, category: "shop-shampoo", image: "https://5.imimg.com/data5/ECOM/Default/2024/5/422116702/BS/OU/VX/44622788/1601924654630-sku-0546-0-500x500.jpg" },
             { id: 8, name: "Vatika", price: 1, category: "shop-shampoo", image: "https://tiimg.tistatic.com/fp/1/007/747/anti-hair-fall-and-dandruff-free-smooth-silky-soft-shiny-vatika-hair-shampoo--738.jpg" },
-            { id: 9, name: "Chik", price: 1, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Lifebuoy+Soap" },
+            { id: 9, name: "Chik", price: 1, category: "shop-shampoo", image: "https://ruralkingz.com/wp-content/uploads/2020/09/chik-shampoo-2.jpg" },
             { id: 10, name: "Coconut Oil", price: 1, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Dove+Shampoo" },
             { id: 11, name: "Dabur Amla Oil", price: 1, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Clinic+Plus" },
             { id: 12, name: "Bajaj Almond", price: 1, category: "shop-shampoo", image: "https://via.placeholder.com/200?text=Lifebuoy+Soap" },
