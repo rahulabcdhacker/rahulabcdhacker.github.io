@@ -354,7 +354,7 @@
         // Update Cart UI
         function updateCart() {
             cartItems.innerHTML = '';
-            let total = 0;
+            let total = 10;
             cart.forEach(item => {
                 total += item.price * item.quantity;
                 const cartItem = document.createElement('div');
@@ -372,7 +372,7 @@
                 cartItems.appendChild(cartItem);
             });
             cartTotal.textContent = total.toFixed(2);
-            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity+10, 0);
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
         }
 
         // Toggle Modals
