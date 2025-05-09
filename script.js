@@ -354,7 +354,7 @@
         // Update Cart UI
         function updateCart() {
             cartItems.innerHTML = '';
-            let total = 10;
+            let total = 0;
             cart.forEach(item => {
                 total += item.price * item.quantity;
                 const cartItem = document.createElement('div');
