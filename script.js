@@ -356,7 +356,7 @@
             cartItems.innerHTML = '';
             let total = 0;
             cart.forEach(item => {
-                total += item.price * item.quantity;
+                total += item.price * item.quantity+10;
                 const cartItem = document.createElement('div');
                 cartItem.className = 'flex justify-between items-center p-3 bg-gray-50 rounded-lg cart-item';
                 cartItem.innerHTML = `
