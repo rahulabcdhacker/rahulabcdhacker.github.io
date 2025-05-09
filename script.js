@@ -9,7 +9,7 @@
             { id: 9, name: "Feez (250ml)", price: 20, category: "cold-drink", image: "fizz20.jpg" },
             { id: 10, name: "Sprite (250ml)", price: 20, category: "cold-drink", image: "https://via.placeholder.com/200?text=Pepsi" },
             { id: 11, name: "ThumsUp(250ml)", price: 20, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
-            { id: 12, name: "Fanta (250ml)", price: 20, category: "cold-drink", image: "coca .jpg" },
+            { id: 12, name: "Fanta (250ml)", price: 20, category: "cold-drink", image: "https://d3cm4d6rq8ed33.cloudfront.net/media/navpravartakfiles/19/a0b65950-b3fd-4f7f-8b2b-58d2e5265e49.jpg" },
             { id: 13, name: "Mazaa (250ml)", price: 20, category: "cold-drink", image: "coca .jpg" },
             { id: 14, name: "String (250ml)", price: 20, category: "cold-drink", image: "Sting.jpg" },
             { id: 15, name: "Lahori jeera (250ml)", price: 10, category: "cold-drink", image: "https://via.placeholder.com/200?text=Sprite" },
