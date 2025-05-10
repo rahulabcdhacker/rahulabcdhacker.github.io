@@ -272,7 +272,7 @@
             //today offer
             { id: 1, name: "Coca Cola (250ml)", price: 20, category: "Today Offer", image: "coca .jpg" },
             { id: 2, name: "Maaza (125ml)", price: 10, category: "Today Offer", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
-            { id: 3, name: "Litchi Drink (250ml)", price: 10, category: "Today Offer", image: "https://dyyv8eonpc8dv.cloudfront.net/media/cache/f8/bc/f8bc9218424bfcd9c7e489e95172e820.jpg" },
+            { id: 3, name: "Litchi Drink (250ml)", price: 50, category: "Today Offer", image: "offer.jpg" },
         ];
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
