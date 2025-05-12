@@ -321,7 +321,7 @@
             { id: 31, name: "Salt (1Kg)", price: 15, category: "masale", image: "https://5.imimg.com/data5/SELLER/Default/2024/6/430398382/QO/RF/YH/100086719/mahaveer-taza-salt-500x500.jpeg" },
             { id: 32, name: "Tata Salt", price: 30, category: "masale", image: "https://m.media-amazon.com/images/I/61tKlw6caqL._AC_UF894,1000_QL80_.jpg" },
             { id: 33, name: "Gola (1Kg)", price: 300, category: "masale", image: "https://5.imimg.com/data5/SELLER/Default/2023/12/370720279/YD/IK/LQ/141732338/khopra-gola-500x500.jpg" },
-            { id: 31, name: "Sukhe Dhaniya", price: 5, category: "masale", image: https://5.imimg.com/data5/SELLER/Default/2024/2/392266326/UD/AT/GM/45273170/sukhi-dhaniya-500x500.jpg" },
+            { id: 31, name: "Sukhe Dhaniya", price: 5, category: "masale", image: "https://5.imimg.com/data5/SELLER/Default/2024/2/392266326/UD/AT/GM/45273170/sukhi-dhaniya-500x500.jpg" },
             { id: 32, name: "Sukhi Mirch (1Kg)", price: 250, category: "masale", image: "https://m.media-amazon.com/images/I/81F7X1BJMzL._AC_UF1000,1000_QL80_.jpg" },
             { id: 33, name: "Garam Masala", price: 10, category: "masale", image: "https://5.imimg.com/data5/SELLER/Default/2021/7/BR/BI/NO/127881804/new-product-500x500.jpeg" },
             { id: 32, name: "Fatkari", price: 5, category: "masale", image: "https://m.media-amazon.com/images/I/612djy44AVL.jpg" },
