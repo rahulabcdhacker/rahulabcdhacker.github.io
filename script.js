@@ -434,7 +434,7 @@
                     </div>
                     <div class="flex items-center space-x-4">
                         <span>₹${item.price * item.quantity}</span>
-                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></button>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700">Remove</button>
                     </div>
                 `;
                 cartItems.appendChild(cartItem);
