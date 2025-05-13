@@ -335,7 +335,7 @@
             { id: 425, name: "Chaap Masala Goldiee", price: 10, category: "masale", image: "https://m.media-amazon.com/images/I/51dmI-jzJLS.jpg" },
             { id: 426, name: "Masala Goldiee", price: 10, category: "masale", image: "https://via.placeholder.com/200?text=Garam+Masala" },
             //today offer
-            { id: 427, name: "Coca Cola (250ml)", price: 20, category: "Today Offer", image: "coca .jpg" },
+            { id: 427, name: "Sting (250ml)", price: 20, category: "Today Offer", image: "buy3.png" },
             { id: 428, name: "Maaza (125ml)", price: 10, category: "Today Offer", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
             { id: 429, name: "Litchi Drink (250ml)", price: 50, category: "Today Offer", image: "offer.jpg" },
         ];
