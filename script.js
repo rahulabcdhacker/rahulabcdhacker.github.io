@@ -2,6 +2,7 @@
         const products = [
             // All category
             { id: 1, name: "Cake (1Pound)", price: 180, category: "all", image: "https://m.media-amazon.com/images/I/51uuceC0GoL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 483, name: "Birthday Items", price: 180, category: "all", image: "https://5.imimg.com/data5/HY/CZ/CU/SELLER-56563399/birthday-decoration-items-500x500.jpeg" },
             { id: 2, name: "Maaza (125ml)", price: 10, category: "all", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
             { id: 3, name: "Litchi Drink (250ml)", price: 10, category: "all", image: "https://dyyv8eonpc8dv.cloudfront.net/media/cache/f8/bc/f8bc9218424bfcd9c7e489e95172e820.jpg" },
             { id: 4, name: "Campa Orange (250ml)", price: 10, category: "all", image: "https://5.imimg.com/data5/ANDROID/Default/2024/7/433881561/DX/CA/LL/156958934/product-jpeg.jpeg" },
