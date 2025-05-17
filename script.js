@@ -1,6 +1,14 @@
    // Product data with categories
         const products = [
             // All category
+            { id: 483, name: "Cake", price: 180, category: "all", image: "https://m.media-amazon.com/images/I/51uuceC0GoL._AC_UF1000,1000_QL80_.jpg" },
+            { id: 485, name: "Birthday Items", category: "all", image: "https://5.imimg.com/data5/HY/CZ/CU/SELLER-56563399/birthday-decoration-items-500x500.jpeg" },
+            { id: 486, name: "Item", price: 60, category: "all", image: "https://via.placeholder.com/200?text=Bikano+Mixture" },
+            { id: 487, name: "Item", price: 5, category: "all", image: "https://via.placeholder.com/200?text=Bikano+Mixture" },
+            { id: 488, name: "Item", price: 5, category: "all", image: "https://via.placeholder.com/200?text=Bikano+Mixture" },
+            { id: 489, name: "Item", price: 15, category: "all", image: "https://via.placeholder.com/200?text=Bikano+Mixture" },
+            { id: 490, name: "Item", price: 60, category: "all", image: "https://via.placeholder.com/200?text=Bikano+Mixture" },
+            { id: 491, name: "Item", price: 5, category: "all", image: "https://via.placeholder.com/200?text=Bikan 
             { id: 1, name: "Coca Cola (250ml)", price: 20, category: "all", image: "coca .jpg" },
             { id: 2, name: "Maaza (125ml)", price: 10, category: "all", image: "https://www.bigbasket.com/media/uploads/p/l/265725_18-maaza-juice-mango-refresh.jpg" },
             { id: 3, name: "Litchi Drink (250ml)", price: 10, category: "all", image: "https://dyyv8eonpc8dv.cloudfront.net/media/cache/f8/bc/f8bc9218424bfcd9c7e489e95172e820.jpg" },
